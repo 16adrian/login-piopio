@@ -1,0 +1,240 @@
+/* =========================================
+   1. VARIABLES (paleta de colores del pollito)
+   ========================================= */
+:root {
+  --amarillo: #FFC93C;
+  --amarillo-oscuro: #F4A100;
+  --naranja: #FF8C42;
+  --crema: #FFF8E7;
+  --texto: #3D2C1E;
+  --texto-suave: #8A7A6A;
+  --borde: #EADFCB;
+  --blanco: #FFFFFF;
+  --radio: 10px;
+}
+
+/* =========================================
+   2. RESET BÁSICO
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+}
+
+/* =========================================
+   3. ESTRUCTURA PRINCIPAL CON CSS GRID
+   ========================================= */
+.login {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* =========================================
+   4. PANEL DE MARCA (izquierda)
+   ========================================= */
+.brand {
+  background: linear-gradient(135deg, var(--amarillo), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  text-align: center;
+}
+
+.brand__chick {
+  width: 200px;
+  height: 200px;
+  font-size: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  display: grid;
+  place-items: center;
+}
+
+.brand__name {
+  font-size: 48px;
+}
+
+.brand__slogan {
+  font-size: 18px;
+}
+
+/* =========================================
+   5. ÁREA DEL FORMULARIO (derecha)
+   ========================================= */
+.login__form-area {
+  background: var(--blanco);
+  display: grid;
+  place-items: center;
+  padding: 40px 24px;
+}
+
+.form {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__mini-logo {
+  display: none;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--amarillo-oscuro);
+  margin-bottom: 24px;
+}
+
+.form__title {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.form__subtitle {
+  font-size: 14px;
+  color: var(--texto-suave);
+  margin-bottom: 28px;
+}
+
+.form__label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form__field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: #FFFDF8;
+}
+
+.form__field:focus-within {
+  border-color: var(--amarillo-oscuro);
+  box-shadow: 0 0 0 3px rgba(255, 201, 60, 0.3);
+}
+
+.form__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 14px 0;
+  font-size: 15px;
+  color: var(--texto);
+}
+
+.form__icon {
+  font-size: 16px;
+}
+
+.form__icon--right {
+  cursor: pointer;
+}
+
+.form__forgot {
+  align-self: flex-end;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--amarillo-oscuro);
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+.form__button {
+  padding: 14px;
+  border: none;
+  border-radius: var(--radio);
+  background: var(--naranja);
+  color: var(--blanco);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.form__button:hover {
+  background: var(--amarillo-oscuro);
+  transform: translateY(-2px);
+}
+
+.form__signup {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+.form__signup a {
+  color: var(--naranja);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* =========================================
+   6. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+
+/* TABLET: pantallas de 900px o menos */
+@media (max-width: 900px) {
+  .login {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .brand {
+    flex-direction: row;
+    padding: 24px;
+  }
+
+  .brand__chick {
+    width: 80px;
+    height: 80px;
+    font-size: 48px;
+  }
+
+  .brand__name {
+    font-size: 32px;
+  }
+
+  .brand__slogan {
+    display: none;
+  }
+}
+
+/* MÓVIL: pantallas de 600px o menos */
+@media (max-width: 600px) {
+  .brand {
+    display: none;
+  }
+
+  .login {
+    grid-template-rows: 1fr;
+  }
+
+  .login__form-area {
+    background: var(--crema);
+    padding: 32px 20px;
+  }
+
+  .form__mini-logo {
+    display: block;
+  }
+
+  .form__title {
+    font-size: 24px;
+  }
+}
